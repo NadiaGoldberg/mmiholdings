@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="todoApp">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="conversion.js"></script>        
+	</head>
+	<body>       
+		
+<div ng-app="conversionsApp" ng-controller="conversionController">
+
+<h1> Metric Conversion App</h2>
+This would ideally be a more dynamic page, but given the time line and the fact that I have no prior knowledge of AngularJS I decided to implement a simpler UI solution.
+In the back end I convert the conversion type to units. Simulating it being passed.  
+  
+  <h2>Input value: </h2>
+	<input type ="text" ng-model="input_value"><br>
+  <input type="radio" name="conversion" ng-model="1" checked> millimeters to inches <br>
+  <input type="radio" name="conversion" ng-model="2"> inches to millimeters <br>
+  <br>
+  <input type="radio" name="conversion" ng-model="3"> kilometers to miles <br>
+  <input type="radio" name="conversion" ng-model="4"> miles to kilometers <br>
+  <br>
+  <input type="radio" name="conversion" ng-model="5"> kilogram to pounds <br>
+  <input type="radio" name="conversion" ng-model="6"> pounds to kilogram <br> 
+  
+  <br><br>
+  <button ng-click="convert()">Convert</button>
+  
+  <h2>Converted Value: {{value}}</h2>
+</div>
+
+
+</body>
+</html>
+
