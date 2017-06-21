@@ -1,35 +1,35 @@
-<!doctype html>
-<html ng-app="todoApp">
-	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-		<script src="conversion.js"></script>        
-	</head>
-	<body>       
-		
-<div ng-app="conversionsApp" ng-controller="conversionController">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Metric Conversion</title>
 
-<h1> Metric Conversion App</h2>
-This would ideally be a more dynamic page, but given the time line and the fact that I have no prior knowledge of AngularJS I decided to implement a simpler UI solution.
-In the back end I convert the conversion type to units. Simulating it being passed.  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body ng-app="app">
+<div ng-controller="ConversionController">
+	
+	<h1> Metric Conversion App</h2>
+	This would ideally be a more dynamic page, but given the time line and the fact that I have no prior knowledge of AngularJS I decided to implement a simpler UI solution.
+	In the back end I convert the conversion type to units. Simulating it being passed.   
+	The text input should also only be allowed to accept numbers.
   
   <h2>Input value: </h2>
 	<input type ="text" ng-model="input_value"><br>
-  <input type="radio" name="conversion" ng-model="1" checked> millimeters to inches <br>
-  <input type="radio" name="conversion" ng-model="2"> inches to millimeters <br>
+  <input type="radio" checked name="conversion" ng-model="conv" value ="1" > millimeters to inches <br>
+  <input type="radio" name="conversion" ng-model="conv" value ="2" > inches to millimeters <br>
   <br>
-  <input type="radio" name="conversion" ng-model="3"> kilometers to miles <br>
-  <input type="radio" name="conversion" ng-model="4"> miles to kilometers <br>
+  <input type="radio" name="conversion" ng-model="conv" value ="3" > kilometers to miles <br>
+  <input type="radio" name="conversion" ng-model="conv" value ="4">  miles to kilometers <br>
   <br>
-  <input type="radio" name="conversion" ng-model="5"> kilogram to pounds <br>
-  <input type="radio" name="conversion" ng-model="6"> pounds to kilogram <br> 
+  <input type="radio" name="conversion" ng-model="conv"  value ="5"> kilogram to pounds <br>
+  <input type="radio" name="conversion" ng-model="conv" value ="6">  pounds to kilogram <br> 
   
   <br><br>
   <button ng-click="convert()">Convert</button>
   
-  <h2>Converted Value: {{value}}</h2>
+  <h2>Converted Value: {{convertedValue}}</h2>  
+		
 </div>
-
-
 </body>
 </html>
-

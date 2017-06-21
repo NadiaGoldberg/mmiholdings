@@ -1,7 +1,9 @@
 package co.za.mmiholdings.GoldbergConversion.converter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import co.za.mmiholdings.GoldbergConversion.model.ConversionData;
@@ -14,6 +16,8 @@ import co.za.mmiholdings.GoldbergConversion.model.UNITS;
 @Component
 public class Converter {
 	BigDecimal multiplier;
+	
+	final static Logger logger = Logger.getLogger(Converter.class);
 
 	/**
 	 * This method will set the multiplier value for the conversion. This switch
@@ -26,6 +30,9 @@ public class Converter {
 	public Converter setConversionType(ConversionData conversionData) {
 		UNITS source = conversionData.getSource();
 		UNITS target = conversionData.getTarget();
+		
+		logger.info("Source: " + source.toString());
+		logger.info("target: " + target.toString());
 
 		switch (source) {
 		case MILLIMETER:
@@ -98,9 +105,13 @@ public class Converter {
 	 */
 	public BigDecimal convert(BigDecimal inputValue) {
 		BigDecimal outputValue = null;
+		
+		logger.info("mult: " + multiplier.toString());
+		logger.info("input: " + inputValue.toString());
+		
 	
 		if (inputValue != null && multiplier != null) {
-			 outputValue = inputValue.multiply(multiplier);
+			 outputValue = inputValue.multiply(multiplier).setScale(4, RoundingMode.HALF_UP);
 		}
 		return outputValue;
 	}
