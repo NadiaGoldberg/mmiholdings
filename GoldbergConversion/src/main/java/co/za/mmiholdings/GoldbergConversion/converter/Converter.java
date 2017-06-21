@@ -105,12 +105,12 @@ public class Converter {
 	 */
 	public BigDecimal convert(BigDecimal inputValue) {
 		BigDecimal outputValue = null;
-		
-		logger.info("mult: " + multiplier.toString());
-		logger.info("input: " + inputValue.toString());
-		
 	
 		if (inputValue != null && multiplier != null) {
+			
+			logger.info("mult: " + multiplier.toString());
+			logger.info("input: " + inputValue.toString());
+			
 			 outputValue = inputValue.multiply(multiplier).setScale(4, RoundingMode.HALF_UP);
 		}
 		return outputValue;

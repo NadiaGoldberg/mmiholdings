@@ -4,11 +4,11 @@ app.controller("ConversionController", function($scope, $http) {
  	
  	$scope.convert = function() {		  
  		
- 		$scope.convertedValue = "--";
+ 		$scope.convertedValue = "--" ;
 
         $http({
     		method : 'GET',
-    		url : 'http://localhost:8090/convert?conversionType=' + $scope.convVal 
+    		url : 'http://localhost:8090/convert?conversionType=' + $scope.conv 
     		+ '&input=' + $scope.input_value
 			}).then(function(response) {   	
     		
