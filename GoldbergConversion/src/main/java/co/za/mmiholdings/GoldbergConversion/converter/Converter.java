@@ -31,8 +31,8 @@ public class Converter {
 		UNITS source = conversionData.getSource();
 		UNITS target = conversionData.getTarget();
 		
-		logger.info("Source: " + source.toString());
-		logger.info("target: " + target.toString());
+		logger.info("###Source###: " + source.toString());
+		logger.info("###Target###: " + target.toString());
 
 		switch (source) {
 		case MILLIMETER:
@@ -108,10 +108,11 @@ public class Converter {
 	
 		if (inputValue != null && multiplier != null) {
 			
-			logger.info("mult: " + multiplier.toString());
-			logger.info("input: " + inputValue.toString());
+			logger.info("###Multiplier###: " + multiplier.toString());
+			logger.info("###Input###: " + inputValue.toString());
 			
 			 outputValue = inputValue.multiply(multiplier).setScale(4, RoundingMode.HALF_UP);
+			 logger.info("###OutputValue###: " + outputValue.toString());
 		}
 		return outputValue;
 	}

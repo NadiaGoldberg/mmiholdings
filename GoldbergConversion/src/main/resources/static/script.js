@@ -1,6 +1,5 @@
 var app = angular.module("app", []);
-app.controller("ConversionController", function($scope, $http) {
-  	$scope.message = "Hello, AngularJS";
+app.controller("ConversionController", function($scope, $http) {  	
  	
  	$scope.convert = function() {		  
  		
@@ -12,7 +11,7 @@ app.controller("ConversionController", function($scope, $http) {
     		+ '&input=' + $scope.input_value
 			}).then(function(response) {   	
     		
-    			$scope.convertedValue = response.data
+    			$scope.convertedValue = response.data;
 		
 		});
             
