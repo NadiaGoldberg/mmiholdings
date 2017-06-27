@@ -7,7 +7,7 @@ app.controller("ConversionController", function($scope, $http) {
 
         $http({
     		method : 'GET',
-    		url : 'http://localhost:8090/convert?conversionType=' + $scope.conv 
+    		url : 'http://localhost:8010/convert?conversionType=' + $scope.conv 
     		+ '&input=' + $scope.input_value
 			}).then(function(response) {   	
     		

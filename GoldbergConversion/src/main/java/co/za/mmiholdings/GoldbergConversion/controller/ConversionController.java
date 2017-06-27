@@ -3,6 +3,7 @@ package co.za.mmiholdings.GoldbergConversion.controller;
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +37,7 @@ public class ConversionController {
 	public ResponseEntity<BigDecimal> convert(@RequestParam(value = "conversionType") String conversionType,
 			@RequestParam(value = "input") BigDecimal input) {
 		
-		HttpStatus httpStatus = HttpStatus.ACCEPTED;
+		HttpStatus httpStatus = HttpStatus.OK;
 		
 		ConversionData conversionData = new ConversionData(conversionType);
 		
@@ -47,8 +48,23 @@ public class ConversionController {
 			
 		}
 		
-		return new ResponseEntity<BigDecimal>(convertedValue, httpStatus); 
+		return new ResponseEntity<BigDecimal>(convertedValue, createStandardHeaders(), httpStatus);
+		
 
 	}
+	
+	public static HttpHeaders createStandardHeaders() {
+
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.add("Access-Control-Allow-Origin", "*");
+
+        headers.add("Access-Control-Allow-Headers", "Content-Type");
+
+        headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+
+        return headers;
+
+  }
 
 }
