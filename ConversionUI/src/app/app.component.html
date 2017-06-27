@@ -1,0 +1,42 @@
+<!--The whole content below can be removed with the new code.-->
+<div style="text-align:center">
+  
+<h2>Metric Conversion</h2>
+<h5>This would ideally be a more dynamic page, but given the time line and the fact that I have no prior knowledge of AngularJS I decided to implement a simpler UI solution.
+		In the back end I convert the conversion type to units. Simulating it being passed.   
+		The text input should also only be allowed to accept numbers.</h5>
+</div>
+
+
+   
+ <div class="form-group">
+  <input type="number" [(ngModel)]="inputValue" class="form-control" (keypress)="callConvertService()"><br>
+
+
+  <ul>
+  	<li *ngFor="let conversion of conversions">  
+     <input type="radio" name="conv" (click)="getValue(conversion.id)" (click)="callConvertService()"
+       [checked]="conversion.id == selectedOption.id"
+        value= {{conversion.id}} > {{conversion.name}}
+  	</li>
+  	
+	</ul>	
+	<br>	
+	<button (click)="callConvertService()">Convert</button>
+	<h2>Converted Value</h2>	
+	<h4>  {{inputValue}} {{selectedOption.name}}  :  {{this.convertedValue}}</h4>
+
+
+
+
+  
+
+ 
+</div>
+
+ 
+ 
+
+
+
+
